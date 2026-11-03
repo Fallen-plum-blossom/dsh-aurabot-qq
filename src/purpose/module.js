@@ -180,7 +180,7 @@ export function createPurpose({ getConfig, setConfig, hub, log, isMuted, mood, m
       materials: materials.items, now, lastMasterAt, personaBias: persona.bias,
       needFeedback: state.needFeedback, halfLifeHours: config.driveHalfLifeHours,
     })
-    const { goals, observations } = formGoalHypotheses({
+    const { goals, observations, needFeedback } = formGoalHypotheses({
       materials: materials.items, goals: state.goals, observations: state.observations,
       drives, now, lastMasterAt, config, roleName: ROLE, persona,
     })
@@ -188,7 +188,7 @@ export function createPurpose({ getConfig, setConfig, hub, log, isMuted, mood, m
       materials: materials.items, now, roleName: ROLE, config,
       drives, history: state.history, lastMasterAt,
     })
-    return { materials, persona, lastMasterAt, drives, goals, observations, seeds }
+    return { materials, persona, lastMasterAt, drives, goals, observations, seeds, needFeedback }
   }
 
   const friendName = (friend) => {
